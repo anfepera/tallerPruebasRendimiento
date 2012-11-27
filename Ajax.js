@@ -24,7 +24,7 @@ function insertar()
                    
             beforeSend:inicioEnvio,
             success:llegada,
-            timeout:10000,
+            timeout:20000,
             error:problemas
         }); 
         return false;
@@ -151,11 +151,11 @@ function consultar(valor)
             type: "POST",
             dataType: "html",
             contentType: "application/x-www-form-urlencoded",
-            url:"Consultar.php",
+            url:"consultar.php",
             data:"valor="+valor,            
             beforeSend:inicioEnvio,
             success:llegada,
-            timeout:10000,
+            timeout:30000,
             error:problemas
         }); 
         return false;
@@ -167,9 +167,11 @@ function consultar(valor)
     }
     function llegada(datos)
     {
+//        alert(datos);
        
         var dataJson = eval(datos);
-//        alert('lo que llego de la bd '+dataJson[0].documentoPasajero +'  '+dataJson[0].nombreEstacionOrigen);
+        alert(dataJson);
+        //        alert('lo que llego de la bd '+dataJson[0].documentoPasajero +'  '+dataJson[0].nombreEstacionOrigen);
         if(dataJson=="error")
         {
              
@@ -194,13 +196,13 @@ function consultar(valor)
             $cadena +="<td>"+dataJson[0].nombreEstacionOrigen+"</td>";
             $cadena +="<td>"+dataJson[0].nombreEstacionDestino+"</td>";
             $cadena += "</tr>";
-//         
+            //         
             $("#miTabla").append($cadena);
             $cadena=""; 
-            }
+        }
              
             
-     //                    document.getElementById("miTabla").innerHTML=cadena;  
+    //                    document.getElementById("miTabla").innerHTML=cadena;  
     //                    $("#miTabla").append(cadena);
                     
     }
@@ -217,17 +219,17 @@ function consultar(valor)
 
 function obtenerRegistros()
 {
-//    
-//    document.getElementById('contenidoTabla').innerHTML='';
+    //    
+    //    document.getElementById('contenidoTabla').innerHTML='';
 
-
-    for( i=1;i<=15000;i++)
+   
+    for( i=1;i<=10;i++)
     {
         consultar(i);
             
             
     }
-//    document.getElementById('respuesta').textContent = 'Datos cargados correctamente';
+    document.getElementById('respuesta').textContent = 'Datos cargados correctamente';
 }
             
 

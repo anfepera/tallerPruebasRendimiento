@@ -9,12 +9,9 @@ $cadena = "DELETE FROM registro_viajes;";
 $rs  = mysql_query($cadena); //      
 
 
-
     $cadena2="error";
     
-  
-    
-    
+   
       if(mysql_affected_rows()>1)
     {
        $cadena2="ok" ;

@@ -13,7 +13,7 @@ mysql_select_db("anfepera", $connection) or die("Error loading the DataBase" . m
     for ($i=1;$i<=15000;$i++)
     {
        
-        $cadena = "INSERT INTO registro_viajes(documentoPasajero,hora,minutos,nombreEstacionOrigen,nombreEstacionDestino) values  ('$i','23:00',60,'san pascual','torre de cali');";
+        $cadena = "INSERT INTO registro_viajes(hora,minutos,nombreEstacionOrigen,nombreEstacionDestino) values  ('23:00',60,'san pascual','torre de cali');";
           
         $rs  = mysql_query($cadena); //       
        

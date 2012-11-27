@@ -3,7 +3,7 @@
 $valor= $_POST['valor'];
 $respuesta = "error";
 
-$consulta = "SELECT * FROM registro_viajes where documentoPasajero= '$valor'";
+$consulta = "SELECT * FROM registro_viajes";
 $mysql_host = "localhost";
 $mysql_database = "anfepera";
 $mysql_user = "root";
@@ -33,6 +33,8 @@ $registros[] = array(
         'nombreEstacionOrigen' => $fila->nombreEstacionOrigen,
         'nombreEstacionDestino' => $fila->nombreEstacionDestino,
     );
+ echo $fila->documentoPasajero."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$fila->fecha."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$fila->minutos."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$fila->nombreEstacionOrigen."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$fila->nombreEstacionDestino ;echo'<br>';
+   
 }
 
 if(sizeof($registros)>0)
